@@ -1,0 +1,23 @@
+<app-bienvenida></app-bienvenida>
+
+<button *ngIf="userloged.admin" (click)="nuevoUsuario()">Añadir Usuarios</button>
+<table *ngIf="userloged.admin" >
+    <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Telefono</th>
+        <th>Usuario</th>
+        <th>Es administrador</th>
+        <th>Editar Usuario</th>
+        <th>Borrar Usuario</th>
+    </tr>
+    <tr *ngFor="let usuario of usus">
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.apellidos}}</td>
+        <td>{{usuario.telefono}}</td>
+        <td>{{usuario.usuario}}</td>
+        <td>{{usuario.admin}}</td>
+        <td><button  (click)="editarUsuario(usuario.id)">Editar Usuario</button></td>
+        <td><button (click)="borrarUsuario(usuario.id)">Borrar Usuario</button></td>
+     </tr>
+</table>

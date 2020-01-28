@@ -6,6 +6,7 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
+/src/app/auxi
 
 # dependencies
 /node_modules
@@ -40,6 +41,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+E:\ExamenFinalMascotas\ExamenFinalMascotasAngular\src\app\auxi
 
 # System Files
 .DS_Store

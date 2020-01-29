@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Usuarios } from 'src/app/modelos/usuarios';
 import { Global } from 'src/app/auxiliar/global';
 
@@ -12,7 +12,27 @@ import { Global } from 'src/app/auxiliar/global';
 export class ListadousuariosComponent implements OnInit {
   usus:Usuarios[];
   userloged:Usuarios;
-  constructor(private lo:UsuariosService,  private router:Router, public global: Global) { }
+  mySubscription: any;
+  constructor(private lo:UsuariosService,  private router:Router, public global: Global,private ususer:UsuariosService) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+
+      return false;
+    
+    };
+    
+    this.mySubscription = this.router.events.subscribe((event) => {
+    
+      if (event instanceof NavigationEnd) {
+    
+        // Trick the Router into believing it's last link wasn't previously loaded
+    
+        this.router.navigated = false;
+    
+      }
+    
+    });
+    
+  }
 
   ngOnInit() {
     this.verListadoUsuarios()
@@ -33,5 +53,22 @@ export class ListadousuariosComponent implements OnInit {
     this.router.navigate(["modificacionusuario"]);
   }
 
+  borrarUsuario(id:number){
+    this.ususer.deleteUsuario(id).subscribe(usua=>{
+      this.router.navigate(["bienvenida"]);
+      this.router.navigate(["listadousuarios"]);
+    });
+
+  }
+  
+  ngOnDestroy() {
+
+    if (this.mySubscription) {
+  
+      this.mySubscription.unsubscribe();
+  
+    }
+  
+  }
 
 }

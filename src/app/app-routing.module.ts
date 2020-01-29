@@ -5,6 +5,9 @@ import { BienvenidaComponent } from './componentes/bienvenida/bienvenida.compone
 import { ListadousuariosComponent } from './componentes/listadousuarios/listadousuarios.component';
 import { AltausuarioComponent } from './componentes/altausuario/altausuario.component';
 import { ModificacionUsuarioComponent } from './componentes/modificacion-usuario/modificacion-usuario.component';
+import { ListamascotasComponent } from './componentes/listamascotas/listamascotas.component';
+import { AltamascotaComponent } from './componentes/altamascota/altamascota.component';
+import { ModificacionmascotaComponent } from './componentes/modificacionmascota/modificacionmascota.component';
 
 
 const routes: Routes = [{
@@ -16,6 +19,15 @@ const routes: Routes = [{
 },{
   path: 'altausuario',
   component: AltausuarioComponent
+},{
+  path: 'listamascotas',
+  component: ListamascotasComponent
+},{
+  path: 'modificacionmascota',
+  component: ModificacionmascotaComponent
+},{
+  path: 'altamascotas',
+  component: AltamascotaComponent
 },{
   path: 'modificacionusuario',
   component: ModificacionUsuarioComponent

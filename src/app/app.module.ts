@@ -17,6 +17,10 @@ import { NombreusuarioDirective } from './validators/nombreusuario.directive';
 import { PasswordDirective } from './validators/password.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModificacionUsuarioComponent } from './componentes/modificacion-usuario/modificacion-usuario.component';
+import { AltamascotaComponent } from './componentes/altamascota/altamascota.component';
+import { ListamascotasComponent } from './componentes/listamascotas/listamascotas.component';
+import { Mascotas } from './modelos/mascotas';
+import { ModificacionmascotaComponent } from './componentes/modificacionmascota/modificacionmascota.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,9 @@ import { ModificacionUsuarioComponent } from './componentes/modificacion-usuario
     BienvenidaComponent,
     NombreusuarioDirective,
     ModificacionUsuarioComponent,
+    AltamascotaComponent,
+    ListamascotasComponent,
+    ModificacionmascotaComponent,
     PasswordDirective
   ],
   imports: [
@@ -48,7 +55,7 @@ import { ModificacionUsuarioComponent } from './componentes/modificacion-usuario
     
 
   ],
-  providers: [ Global, Usuarios ],
+  providers: [ Global, Usuarios, Mascotas ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

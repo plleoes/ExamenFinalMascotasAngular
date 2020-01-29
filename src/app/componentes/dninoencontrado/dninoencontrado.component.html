@@ -12,14 +12,8 @@
     Los apellidos son obligatorios
   </div>
 
-<label for="telefono">telefono: </label>
-<input type="text" name="telefono" id="" placeholder="Introduzca Telefono" #telefono="ngModel" [(ngModel)]="altausu.telefono" required >
-<div *ngIf="telefono.errors.required">
-    El telefono es obligatorio
-  </div>
-
-<label for="usuario">Nombre de Usuario: </label>
-<input type="text" name="usuario" id="" placeholder="Introduzca Nombre de Usuario" [(ngModel)]="altausu.usuario" #usuario="ngModel" required appNombreusuario [ngModelOptions]="{updateOn: 'change'}" >
+<label for="direccion">Dirección: </label>
+<input type="text" name="direccion" id="" placeholder="Introduzca la dirección" [(ngModel)]="altausu.usuario" #direccion="ngModel" required  >
 <div *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)">
     <div *ngIf="usuario.errors.required">
       El nombre de usuario es obligatorio
@@ -28,8 +22,14 @@
       {{usuario.errors.appNombreusuario.message}}
     </div>
 </div>
-<label for="password">Contraseña: </label>
-<input type="password" name="password" id="" placeholder="Introduzca contraseña" #password="ngModel" [(ngModel)]="pass" required appPassword [ngModelOptions]="{updateOn: 'change'}">
+<label for="localidad">Localidad: </label>
+<input type="text" name="localidad" id="" placeholder="Introduzca localidad" #localidad="ngModel" [(ngModel)]="altausu.apellidos" required>
+<div *ngIf="apellidos.errors.required">
+    Los apellidos son obligatorios
+  </div>
+
+<label for="email">Correo electronico: </label>
+<input type="email" name="email" id="" placeholder="Introduzca correo electronico" #email="ngModel" [(ngModel)]="pass" required appPassword [ngModelOptions]="{updateOn: 'change'}">
 <div *ngIf="password.invalid && (password.dirty || password.touched)">
     <div *ngIf="password.errors.required">
       el nombre de usuario es obligatorio
@@ -38,7 +38,10 @@
       {{password.errors.appPassword.message}}
     </div>
 </div>
+<label for="telefono">telefono: </label>
+<input type="text" name="telefono" id="" placeholder="Introduzca Telefono" #telefono="ngModel" [(ngModel)]="altausu.telefono" required >
+<div *ngIf="telefono.errors.required">
+    El telefono es obligatorio
+  </div>
 
-<label for="administrador">¿Es administrador?: </label>
-<input type="checkbox" name="administrador" id="" [(ngModel)]="altausu.admin" [ngModelOptions]="{standalone: true}"/>
-<button (click)="modificaUsuario()">Guardar</button>
+<button (click)="Venta()">Realizar venta</button>

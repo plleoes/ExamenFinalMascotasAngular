@@ -18,19 +18,24 @@ export class UsuariosService {
 
   }
 
+  getUsuario(id:number){
+    return this.http.get<Usuarios>(this.path+"listarusuarios/"+id);
+
+  }
+
   createUsuarios(u:Usuarios)
   {
     return this.http.post<Usuarios>(this.path+"nuevousuario",u);
   }
 
-  updatePersona(u:Usuarios)
+  updateUsuario(u:Usuarios)
   {
     return this.http.put<Usuarios>(this.path+"modificarusuario/"+u.id,u);
   }
 
-  deletePersona(u:Usuarios)
+  deleteUsuario(u:number)
   {
-  return this.http.delete<Usuarios>(this.path+"borrarusuario/"+u.id);
+  return this.http.delete<Usuarios>(this.path+"borrarusuario/"+u);
   }
 
   verifyUserPass(usu:string,pass:string){

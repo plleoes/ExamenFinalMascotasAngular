@@ -1,0 +1,5 @@
+<app-bienvenida></app-bienvenida>
+
+<label for="dni">DNI: </label>
+<input type="text" name="dni" id="" placeholder="Introduzca DNI" #nombre="ngModel" [(ngModel)]="dni" required>
+<button (click)="buscarDNI()">Busca DNI del Comprador</button>

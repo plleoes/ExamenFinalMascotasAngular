@@ -1,0 +1,24 @@
+<app-bienvenida></app-bienvenida>
+
+<button *ngIf="userloged" (click)="nuevaMascota()">Añadir Mascotas</button>
+<table *ngIf="userloged" >
+    <tr>
+        <th>Nombre</th>
+        <th><select name="tipo" (change)="verListadoMascotasportipo($event.target.value)">
+            <option [value]="" >Todos</option>
+            <option [value]="tipo" *ngFor="let tipo of tipos">{{tipo}}</option>
+            </select></th>
+        <th>Precio</th>
+        <th>Editar</th>
+        <th>Borrar</th>
+        <th>Vender</th>
+    </tr>
+    <tr *ngFor="let mascota of mascotas">
+        <td>{{mascota.nombre}}</td>
+        <td>{{mascota.tipo}}</td>
+        <td>{{mascota.precio}}</td>
+        <td><button  (click)="editarMascota(mascota.id)">Editar Mascota</button></td>
+        <td><button  (click)="borrarMascota(mascota.id)">Borrar Mascota</button></td>
+        <td><button (click)="venderMascota(mascota.id)">Vender Mascota</button></td>
+     </tr>
+</table>

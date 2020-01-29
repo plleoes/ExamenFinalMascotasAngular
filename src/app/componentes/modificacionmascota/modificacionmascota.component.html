@@ -1,0 +1,22 @@
+<app-bienvenida></app-bienvenida>
+
+<label for="nombre">Nombre: </label>
+<input type="text" name="nombre" id="" placeholder="Introduzca Nombre" #nombre="ngModel" [(ngModel)]="altamas.nombre" required>
+<div *ngIf="nombre.errors.required">
+    El nombre es obligatorio
+</div>
+
+<label for="tipo">Tipo de Mascota: </label>
+<input type="text" name="tipo" id="" placeholder="Introduzca tipo" #tipo="ngModel" [(ngModel)]="altamas.tipo" required>
+<div *ngIf="tipo.errors.required">
+    El tipo es obligatorio
+</div>
+
+<label for="precio">Precio: </label>
+<input type="number" name="precio" id="" placeholder="Introduzca precio" #precio="ngModel" [(ngModel)]="p" required >
+<div *ngIf="precio.errors.required">
+    El precio es obligatorio
+</div>
+
+
+<button (click)="altaMascota()">Añadir</button>

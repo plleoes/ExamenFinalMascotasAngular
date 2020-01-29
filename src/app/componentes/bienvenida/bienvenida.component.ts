@@ -21,4 +21,8 @@ export class BienvenidaComponent implements OnInit {
     this.router.navigate(["listadousuarios"]);
   }
 
+  listamascotas(){
+    this.router.navigate(["listamascotas"]);
+  }
+
 }
